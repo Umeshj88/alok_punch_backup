@@ -154,16 +154,14 @@ if(!empty($_POST['recept_no']))
 					//fclose($handle);
 					//system('print'.$file.'');
 					
+					/*
 					fwrite($handle, $data);
 					fclose($handle);
-					//echo exec('print'.$file.'');
-					 echo $output =system('print '.$file.'');
-					//exit;
-				//print_r($fp);
-				//print_r($file);
-				//exit;
+					echo $output =system('print '.$file.'');
 					unlink($file);
-					echo "<meta http-equiv='Refresh' content='0 ;URL=mnth_fee.php?schlr_no_id=$schlr_no_id'>";
+					*/
+					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print(); window.location.href='mnth_fee.php?schlr_no_id=$schlr_no_id';</script>";
 					exit;
 	}
 	else if(isset($_POST['annl_print']))
@@ -267,13 +265,15 @@ if(!empty($_POST['recept_no']))
 			$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 		}
 					
+					/*
 					fwrite($handle, $data);
 					fclose($handle);
 					system('print '.$file.'');
 					exit;
 					unlink($file);
-		
-					echo "<meta http-equiv='Refresh' content='0 ;URL=annl_fee_new.php?schlr_no_id=$schlr_no_id'>";
+					*/
+					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print(); window.location.href='annl_fee_new.php?schlr_no_id=$schlr_no_id';</script>";
 					exit;
 	}
 	else if(isset($_POST['hstl_print']))
@@ -366,11 +366,14 @@ if(!empty($_POST['recept_no']))
 			$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 		}
 					
+					/*
 					fwrite($handle, $data);
 					fclose($handle);
 					system('print '.$file.'');
 					unlink($file);
-					echo "<meta http-equiv='Refresh' content='0 ;URL=hstl_fee.php?schlr_no_id=$schlr_no_id'>";
+					*/
+					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print(); window.location.href='hstl_fee.php?schlr_no_id=$schlr_no_id';</script>";
 					exit;
 	}
 	
@@ -421,11 +424,14 @@ if(!empty($_POST['recept_no']))
 			$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 		}
 					
+					/*
 					fwrite($handle, $data);
 					fclose($handle);
 					system('print '.$file.'');
 					unlink($file);
-					echo "<meta http-equiv='Refresh' content='0 ;URL=ctn_fee.php?schlr_no_id=$schlr_no_id'>";
+					*/
+					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print(); window.location.href='ctn_fee.php?schlr_no_id=$schlr_no_id';</script>";
 					exit;
 	}
 	else if(isset($_POST['adhoc_print']))
@@ -488,11 +494,14 @@ if(!empty($_POST['recept_no']))
 			$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bank;
 		}
 					
+					/*
 					fwrite($handle, $data);
 					fclose($handle);
 					system('print '.$file.'');
 					unlink($file);
-					echo "<meta http-equiv='Refresh' content='0 ;URL=srch_adhc.php?schlr_no_id=$schlr_no_id'>";
+					*/
+					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print(); window.location.href='srch_adhc.php?schlr_no_id=$schlr_no_id';</script>";
 					exit;
 	}
 	else if(isset($_POST['oldfee_print']))
@@ -576,11 +585,14 @@ if(!empty($_POST['recept_no']))
 			$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 		}
 					
+					/*
 					fwrite($handle, $data);
 					fclose($handle);
 					system('print '.$file.'');
 					unlink($file);
-					echo "<meta http-equiv='Refresh' content='0 ;URL=srch_old_payment.php?schlr_no_id=$schlr_no_id'>";
+					*/
+					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print(); window.location.href='srch_old_payment.php?schlr_no_id=$schlr_no_id';</script>";
 					exit;
 	}
 	
@@ -641,11 +653,14 @@ if(!empty($_POST['recept_no']))
 			{
 				$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 			}
+			/*
 			fwrite($handle, $data);
 			fclose($handle);
 			system('print '.$file.'');
 			unlink($file);
-			echo "<meta http-equiv='Refresh' content='0 ;URL=srch_adhc.php?done=done'>";
+			*/
+			echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
+			echo "<script>window.print(); window.location.href='srch_adhc.php?done=done';</script>";
 			exit;
 			//////////////////////////////////////// Receipt Delete Code   //////////////////////////////////////////////////////////////////////
 	}

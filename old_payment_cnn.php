@@ -149,10 +149,15 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 				{
 					$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bank;
 				}
+				/*
 				fwrite($handle, $data);
 				fclose($handle);
 				system('print '.$file.'');
 				unlink($file);
+				*/
+				echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
+				echo "<script>window.print(); window.location.href='srch_old_payment.php?done=done';</script>";
+				exit;
 			}
 			
 			echo "<meta http-equiv='Refresh' content='0 ;URL=srch_old_payment.php?done=done'>";

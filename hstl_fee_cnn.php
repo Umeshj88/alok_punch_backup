@@ -159,13 +159,23 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 				{
 					$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 				}
+				/*
 				fwrite($handle, $data);
 				fclose($handle);
 				system('print '.$file.'');
 				unlink($file);
+				*/
+				echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
 			}
 			
-			echo "<meta http-equiv='Refresh' content='0 ;URL=srch_hstl_fee.php?done=done'>";
+			if(isset($_POST['save_print']))
+			{
+				echo "<script>window.print(); window.location.href='srch_hstl_fee.php?done=done';</script>";
+			}
+			else
+			{
+				echo "<meta http-equiv='Refresh' content='0 ;URL=srch_hstl_fee.php?done=done'>";
+			}
 			exit;
 		}
 		else

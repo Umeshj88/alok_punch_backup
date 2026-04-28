@@ -181,10 +181,13 @@ if(isset($_POST['save_print']))
 			{
 				$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 			}
+			/*
 			fwrite($handle, $data);
 			fclose($handle);
 			system('print '.$file.'');
 			unlink($file);
+			*/
+			echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
 			
 			  echo "<script>
 				
@@ -194,7 +197,7 @@ if(isset($_POST['save_print']))
 				}
 		</script>";
 			
-			echo "<meta http-equiv='Refresh' content='0 ;URL=admsn_fee.php?done=done'>";
+			echo "<script>window.print(); window.location.href='admsn_fee.php?done=done';</script>";
 			exit;
 		}
 		else

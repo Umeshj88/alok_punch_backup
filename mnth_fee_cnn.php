@@ -241,11 +241,14 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 					$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 				}
 						
+						/*
 						fwrite($handle, $data);
 						
 						fclose($handle);
 						system('print '.$file.'');
 						unlink($file);
+						*/
+						echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
 			}
 			$sel_mnth_fee_count=mysql_query("select * from `mnth_fee_1` where `schlr_no_id`='".$arr_stdnt['id']."'");
 			$num_mnth_fee_count=mysql_num_rows($sel_mnth_fee_count);
@@ -273,7 +276,14 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 			}
 			
 			
-			echo "<meta http-equiv='Refresh' content='0 ;URL=srch_mnth_fee.php?done=done'>";
+			if(isset($_POST['save_print']))
+			{
+				echo "<script>window.print(); window.location.href='srch_mnth_fee.php?done=done';</script>";
+			}
+			else
+			{
+				echo "<meta http-equiv='Refresh' content='0 ;URL=srch_mnth_fee.php?done=done'>";
+			}
 			exit;
 		}
 		else
