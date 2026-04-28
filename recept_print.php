@@ -160,8 +160,22 @@ if(!empty($_POST['recept_no']))
 					echo $output =system('print '.$file.'');
 					unlink($file);
 					*/
-					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print(); window.location.href='mnth_fee.php?schlr_no_id=$schlr_no_id';</script>";
+					echo "<html><head><title>Print Receipt</title>";
+					echo "<style>
+							@media print { .no-print { display: none; } }
+							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							.back-btn { background: #5bc0de; }
+						  </style></head><body>";
+					echo "<div class='controls no-print'>";
+					echo "<button onclick='window.print()'>Click Here to Print</button>";
+					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
+					echo "</div>";
+					echo "<pre>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print();</script>";
+					echo "</body></html>";
 					exit;
 	}
 	else if(isset($_POST['annl_print']))
@@ -272,8 +286,22 @@ if(!empty($_POST['recept_no']))
 					exit;
 					unlink($file);
 					*/
-					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print(); window.location.href='annl_fee_new.php?schlr_no_id=$schlr_no_id';</script>";
+					echo "<html><head><title>Print Receipt</title>";
+					echo "<style>
+							@media print { .no-print { display: none; } }
+							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							.back-btn { background: #5bc0de; }
+						  </style></head><body>";
+					echo "<div class='controls no-print'>";
+					echo "<button onclick='window.print()'>Click Here to Print</button>";
+					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
+					echo "</div>";
+					echo "<pre>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print();</script>";
+					echo "</body></html>";
 					exit;
 	}
 	else if(isset($_POST['hstl_print']))
@@ -372,8 +400,22 @@ if(!empty($_POST['recept_no']))
 					system('print '.$file.'');
 					unlink($file);
 					*/
-					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print(); window.location.href='hstl_fee.php?schlr_no_id=$schlr_no_id';</script>";
+					echo "<html><head><title>Print Receipt</title>";
+					echo "<style>
+							@media print { .no-print { display: none; } }
+							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							.back-btn { background: #5bc0de; }
+						  </style></head><body>";
+					echo "<div class='controls no-print'>";
+					echo "<button onclick='window.print()'>Click Here to Print</button>";
+					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
+					echo "</div>";
+					echo "<pre>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print();</script>";
+					echo "</body></html>";
 					exit;
 	}
 	
@@ -430,8 +472,22 @@ if(!empty($_POST['recept_no']))
 					system('print '.$file.'');
 					unlink($file);
 					*/
-					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print(); window.location.href='ctn_fee.php?schlr_no_id=$schlr_no_id';</script>";
+					echo "<html><head><title>Print Receipt</title>";
+					echo "<style>
+							@media print { .no-print { display: none; } }
+							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							.back-btn { background: #5bc0de; }
+						  </style></head><body>";
+					echo "<div class='controls no-print'>";
+					echo "<button onclick='window.print()'>Click Here to Print</button>";
+					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
+					echo "</div>";
+					echo "<pre>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print();</script>";
+					echo "</body></html>";
 					exit;
 	}
 	else if(isset($_POST['adhoc_print']))
@@ -500,8 +556,22 @@ if(!empty($_POST['recept_no']))
 					system('print '.$file.'');
 					unlink($file);
 					*/
-					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print(); window.location.href='srch_adhc.php?schlr_no_id=$schlr_no_id';</script>";
+					echo "<html><head><title>Print Receipt</title>";
+					echo "<style>
+							@media print { .no-print { display: none; } }
+							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							.back-btn { background: #5bc0de; }
+						  </style></head><body>";
+					echo "<div class='controls no-print'>";
+					echo "<button onclick='window.print()'>Click Here to Print</button>";
+					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
+					echo "</div>";
+					echo "<pre>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print();</script>";
+					echo "</body></html>";
 					exit;
 	}
 	else if(isset($_POST['oldfee_print']))
@@ -591,8 +661,22 @@ if(!empty($_POST['recept_no']))
 					system('print '.$file.'');
 					unlink($file);
 					*/
-					echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print(); window.location.href='srch_old_payment.php?schlr_no_id=$schlr_no_id';</script>";
+					echo "<html><head><title>Print Receipt</title>";
+					echo "<style>
+							@media print { .no-print { display: none; } }
+							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							.back-btn { background: #5bc0de; }
+						  </style></head><body>";
+					echo "<div class='controls no-print'>";
+					echo "<button onclick='window.print()'>Click Here to Print</button>";
+					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
+					echo "</div>";
+					echo "<pre>".htmlspecialchars($data)."</pre>";
+					echo "<script>window.print();</script>";
+					echo "</body></html>";
 					exit;
 	}
 	
