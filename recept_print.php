@@ -162,9 +162,14 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@media print { .no-print { display: none; } }
-							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
-							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							@page { margin: 0mm; size: auto; }
+							@media print { 
+								.no-print { display: none !important; } 
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.2; width: 100%; }
+							}
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.2; }
 							.controls { text-align: center; margin-bottom: 20px; }
 							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
@@ -288,9 +293,14 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@media print { .no-print { display: none; } }
-							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
-							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							@page { margin: 0mm; size: auto; }
+							@media print { 
+								.no-print { display: none !important; } 
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.2; width: 100%; }
+							}
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.2; }
 							.controls { text-align: center; margin-bottom: 20px; }
 							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
@@ -402,9 +412,14 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@media print { .no-print { display: none; } }
-							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
-							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							@page { margin: 0mm; size: auto; }
+							@media print { 
+								.no-print { display: none !important; } 
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.2; width: 100%; }
+							}
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.2; }
 							.controls { text-align: center; margin-bottom: 20px; }
 							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
@@ -474,9 +489,14 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@media print { .no-print { display: none; } }
-							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
-							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							@page { margin: 0mm; size: auto; }
+							@media print { 
+								.no-print { display: none !important; } 
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.2; width: 100%; }
+							}
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.2; }
 							.controls { text-align: center; margin-bottom: 20px; }
 							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
@@ -558,9 +578,14 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@media print { .no-print { display: none; } }
-							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
-							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							@page { margin: 0mm; size: auto; }
+							@media print { 
+								.no-print { display: none !important; } 
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.2; width: 100%; }
+							}
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.2; }
 							.controls { text-align: center; margin-bottom: 20px; }
 							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
@@ -663,9 +688,14 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@media print { .no-print { display: none; } }
-							body { font-family: monospace; background: #f4f4f4; padding: 20px; }
-							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0 auto; font-size: 14px; white-space: pre-wrap; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+							@page { margin: 0mm; size: auto; }
+							@media print { 
+								.no-print { display: none !important; } 
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.2; width: 100%; }
+							}
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.2; }
 							.controls { text-align: center; margin-bottom: 20px; }
 							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
