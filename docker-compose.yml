@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:5.7
+    platform: linux/amd64
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --sql-mode=NO_ENGINE_SUBSTITUTION
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: Ada!@2026Xz
+      MYSQL_DATABASE: fee_session
+      MYSQL_USER: alok_panch
+      MYSQL_PASSWORD: "x2026P#p%uOP"
+      # MYSQL_ROOT_HOST: "%"
+
+    volumes:
+      - dbdata:/var/lib/mysql
+
+    ports:
+      - "127.0.0.1:3306:3306"
+
+    networks:
+      - cake_network
+
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./docker/adminer/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    depends_on:
+      - db
+    networks:
+      - cake_network
+
+volumes:
+  dbdata:
+
+networks:
+  cake_network:
+    driver: bridge
