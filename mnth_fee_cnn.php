@@ -134,7 +134,7 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 				$file =  tempnam($tmpdir, 'ctk');
 				$handle = fopen($file, 'w');
 				$total=0; $num_row=0;
-				$data="\n\n\n\n";
+				$data="\n\n\n\n\n\n";
 				$data.="              ".$rcpt_no."           ".$session."\n";
 				$data.="     ".date('d-M-Y', strtotime($ndt))."               ".$schlr_no."\n";
 				$data.="           ".$arr_stdnt['fname']." ".$arr_stdnt['mname']." ".$arr_stdnt['lname']."\n";
@@ -230,7 +230,7 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 					$num_row++;
 					$total=$total+$fyn;
 				}
-				for($k=$num_row; $k<8; $k++)
+				for($k=$num_row; $k<10; $k++)
 				{
 					$data.="\n";
 				}
@@ -254,10 +254,10 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 								@media print { 
 									.no-print { display: none !important; } 
 									body { margin: 0; padding: 0; background: white; }
-									pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.5 !important; width: 100%; page-break-inside: avoid; font-family: monospace !important; }
+									pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.5 !important; width: 100%; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
 								}
-								body { font-family: monospace !important; background: #f4f4f4; padding: 20px; }
-								pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.5; page-break-inside: avoid; font-family: monospace !important; }
+								body { font-family: 'Courier New', Courier, monospace !important; background: #f4f4f4; padding: 20px; font-weight: normal !important; }
+								pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.5; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
 								.controls { text-align: center; margin-bottom: 20px; }
 								button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; margin: 5px; }
 								.back-btn { background: #5bc0de; }
