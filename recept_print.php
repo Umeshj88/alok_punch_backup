@@ -48,7 +48,7 @@ if(!empty($_POST['recept_no']))
 		$cn_rm=$arr_mnth_fee_1['cnrm'];
 		$chq_no=$arr_mnth_fee_1['chq_no'];
 		$bnk=$arr_mnth_fee_1['bnk'];
-		$data="\n\n";
+		$data="\n\n\n";
 		$data.="              ".$rcpt_no."           ".$session."\n";
 		$data.="     ".date('d-M-Y', strtotime($dat))."               ".$schlr_no."\n";
 		$data.="           ".$arr_stdnt['fname']." ".$arr_stdnt['mname']." ".$arr_stdnt['lname']."\n";
@@ -91,7 +91,7 @@ if(!empty($_POST['recept_no']))
 			$fee_type=$arr_ft['type'];
 			$len=strlen($fee_type);
 			$data.="   ".$i." ".$fee_type;
-			for($j=$len; $j<=28; $j++)
+			for($j=$len; $j<=35; $j++)
 			{
 				$data.=" ";
 			}
@@ -137,7 +137,7 @@ if(!empty($_POST['recept_no']))
 			$num_row++;
 			$total=$total+$fyn;
 		}
-		for($k=$num_row; $k<8; $k++)
+		for($k=$num_row; $k<10; $k++)
 		{
 			$data.="\n";
 		}
@@ -161,16 +161,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
+							@page { margin: 0mm; size: auto; }
 							@media print { 
 								.no-print { display: none !important; } 
-								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.6; width: 100%; page-break-inside: avoid; }
 							}
-							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
-							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.6; page-break-inside: avoid; }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -224,7 +224,7 @@ if(!empty($_POST['recept_no']))
 			
 			$len=strlen($fee_type);
 			$data.="   ".$i." ".$fee_type;
-			for($j=$len; $j<=28; $j++)
+			for($j=$len; $j<=35; $j++)
 			{
 				$data.=" ";
 			}
@@ -271,7 +271,7 @@ if(!empty($_POST['recept_no']))
 				$num_row++;
 				$total=$total+$fyn;
 			}
-		for($k=$num_row; $k<8; $k++)
+		for($k=$num_row; $k<10; $k++)
 		{
 			$data.="\n";
 		}
@@ -291,16 +291,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
+							@page { margin: 0mm; size: auto; }
 							@media print { 
 								.no-print { display: none !important; } 
-								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.6; width: 100%; page-break-inside: avoid; }
 							}
-							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
-							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.6; page-break-inside: avoid; }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -346,7 +346,7 @@ if(!empty($_POST['recept_no']))
 			$fee_type="Hostel Fee";
 			$len=strlen($fee_type);
 			$data.="   ".$i." ".$fee_type;
-			for($j=$len; $j<=28; $j++)
+			for($j=$len; $j<=35; $j++)
 			{
 				$data.=" ";
 			}
@@ -390,7 +390,7 @@ if(!empty($_POST['recept_no']))
 				$num_row++;
 				$total=$total+$fyn;
 			}
-		for($k=$num_row; $k<8; $k++)
+		for($k=$num_row; $k<10; $k++)
 		{
 			$data.="\n";
 		}
@@ -409,16 +409,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
+							@page { margin: 0mm; size: auto; }
 							@media print { 
 								.no-print { display: none !important; } 
-								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.6; width: 100%; page-break-inside: avoid; }
 							}
-							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
-							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.6; page-break-inside: avoid; }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -467,7 +467,7 @@ if(!empty($_POST['recept_no']))
 		}
 		$data.=$fee."\n";
 		$num_row++;
-		for($k=$num_row; $k<8; $k++)
+		for($k=$num_row; $k<10; $k++)
 		{
 			$data.="\n";
 		}
@@ -485,16 +485,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
+							@page { margin: 0mm; size: auto; }
 							@media print { 
 								.no-print { display: none !important; } 
-								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.6; width: 100%; page-break-inside: avoid; }
 							}
-							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
-							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.6; page-break-inside: avoid; }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -573,16 +573,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
+							@page { margin: 0mm; size: auto; }
 							@media print { 
 								.no-print { display: none !important; } 
-								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.6; width: 100%; page-break-inside: avoid; }
 							}
-							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
-							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.6; page-break-inside: avoid; }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -663,7 +663,7 @@ if(!empty($_POST['recept_no']))
 		}
 		
 		
-		for($k=$num_row; $k<8; $k++)
+		for($k=$num_row; $k<10; $k++)
 		{
 			$data.="\n";
 		}
@@ -682,16 +682,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
+							@page { margin: 0mm; size: auto; }
 							@media print { 
 								.no-print { display: none !important; } 
-								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
+								body { margin: 0; padding: 0; background: white; }
+								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.6; width: 100%; page-break-inside: avoid; }
 							}
-							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
-							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
+							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.6; page-break-inside: avoid; }
+							.controls { text-align: center; margin-bottom: 20px; }
+							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
