@@ -183,7 +183,7 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 					$fee_type=$arr_ft['type'];
 					$len=strlen($fee_type);
 					$data.="   ".$i." ".$fee_type;
-					for($j=$len; $j<=38; $j++)
+					for($j=$len; $j<=28; $j++)
 					{
 						$data.=" ";
 					}
@@ -323,4 +323,5 @@ else if(isset($_POST['back']))
 	exit;
 }
 ?>
+
 

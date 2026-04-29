@@ -91,7 +91,7 @@ if(!empty($_POST['recept_no']))
 			$fee_type=$arr_ft['type'];
 			$len=strlen($fee_type);
 			$data.="   ".$i." ".$fee_type;
-			for($j=$len; $j<=38; $j++)
+			for($j=$len; $j<=28; $j++)
 			{
 				$data.=" ";
 			}
@@ -161,16 +161,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.70cm 10.12cm; margin: 0; }
+							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
 							@media print { 
 								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.0 !important; width: 100%; page-break-inside: avoid; overflow: hidden; }
+								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
 							}
 							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; line-height: 1.0; page-break-inside: avoid; }
+							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
 							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -224,7 +224,7 @@ if(!empty($_POST['recept_no']))
 			
 			$len=strlen($fee_type);
 			$data.="   ".$i." ".$fee_type;
-			for($j=$len; $j<=38; $j++)
+			for($j=$len; $j<=28; $j++)
 			{
 				$data.=" ";
 			}
@@ -291,16 +291,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.70cm 10.12cm; margin: 0; }
+							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
 							@media print { 
 								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.0 !important; width: 100%; page-break-inside: avoid; overflow: hidden; }
+								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
 							}
 							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; line-height: 1.0; page-break-inside: avoid; }
+							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
 							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -346,7 +346,7 @@ if(!empty($_POST['recept_no']))
 			$fee_type="Hostel Fee";
 			$len=strlen($fee_type);
 			$data.="   ".$i." ".$fee_type;
-			for($j=$len; $j<=38; $j++)
+			for($j=$len; $j<=28; $j++)
 			{
 				$data.=" ";
 			}
@@ -409,16 +409,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.70cm 10.12cm; margin: 0; }
+							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
 							@media print { 
 								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.0 !important; width: 100%; page-break-inside: avoid; overflow: hidden; }
+								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
 							}
 							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; line-height: 1.0; page-break-inside: avoid; }
+							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
 							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -461,7 +461,7 @@ if(!empty($_POST['recept_no']))
 		$fee_type="Caution Fee";
 		$len=strlen($fee_type);
 		$data.="   ".$i." ".$fee_type;
-		for($j=$len; $j<=38; $j++)
+		for($j=$len; $j<=28; $j++)
 		{
 			$data.=" ";
 		}
@@ -485,16 +485,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.70cm 10.12cm; margin: 0; }
+							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
 							@media print { 
 								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.0 !important; width: 100%; page-break-inside: avoid; overflow: hidden; }
+								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
 							}
 							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; line-height: 1.0; page-break-inside: avoid; }
+							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
 							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -540,7 +540,7 @@ if(!empty($_POST['recept_no']))
 		$total+=$fee;
 		$len=strlen($fee_type);
 		$data.="   ".$i." ".$fee_type;
-		for($j=$len; $j<=38; $j++)
+		for($j=$len; $j<=28; $j++)
 		{
 			$data.=" ";
 		}
@@ -573,16 +573,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.70cm 10.12cm; margin: 0; }
+							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
 							@media print { 
 								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.0 !important; width: 100%; page-break-inside: avoid; overflow: hidden; }
+								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
 							}
 							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; line-height: 1.0; page-break-inside: avoid; }
+							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
 							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -636,7 +636,7 @@ if(!empty($_POST['recept_no']))
 		$total+=$fee;
 		$len=strlen($fee_type);
 		$data.="   ".$i." ".$fee_type;
-		for($j=$len; $j<=38; $j++)
+		for($j=$len; $j<=28; $j++)
 		{
 			$data.=" ";
 		}
@@ -682,16 +682,16 @@ if(!empty($_POST['recept_no']))
 					*/
 					echo "<html><head><title>Print Receipt</title>";
 					echo "<style>
-							@page { size: 12.70cm 10.12cm; margin: 0; }
+							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
 							@media print { 
 								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.0 !important; width: 100%; page-break-inside: avoid; overflow: hidden; }
+								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
 							}
 							body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 10px; }
-							pre { background: white; padding: 5px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; line-height: 1.0; page-break-inside: avoid; }
+							pre { background: white; padding: 5px; border: 1px solid #ccc; width: 12.7cm; margin: 0; font-size: 11px; white-space: pre; line-height: 1.1; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
 							.controls { text-align: center; margin-bottom: 10px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
+							button { padding: 8px 16px; font-size: 14px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
 							.back-btn { background: #5bc0de; }
 						  </style></head><body>";
 					echo "<div class='controls no-print'>";
@@ -737,7 +737,7 @@ if(!empty($_POST['recept_no']))
 				$total+=$fee;
 				$len=strlen($fee_type);
 				$data.="   ".$i." ".$fee_type;
-				for($j=$len; $j<=38; $j++)
+				for($j=$len; $j<=28; $j++)
 				{
 					$data.=" ";
 				}
@@ -767,8 +767,18 @@ if(!empty($_POST['recept_no']))
 			system('print '.$file.'');
 			unlink($file);
 			*/
-			echo "<pre style='font-family: monospace; font-size: 12px; white-space: pre-wrap;'>".htmlspecialchars($data)."</pre>";
+			echo "<html><head><style>
+							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
+							@media print { 
+								.no-print { display: none !important; } 
+								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
+								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
+							}
+							pre { font-family: 'Courier New', Courier, monospace; font-size: 11px; white-space: pre; line-height: 1.1; margin: 0; padding: 5px; }
+						  </style></head><body>";
+			echo "<pre>".htmlspecialchars($data)."</pre>";
 			echo "<script>window.print(); window.location.href='srch_adhc.php?done=done';</script>";
+			echo "</body></html>";
 			exit;
 			//////////////////////////////////////// Receipt Delete Code   //////////////////////////////////////////////////////////////////////
 	}
@@ -890,3 +900,4 @@ if(!empty($_POST['recept_no']))
 
 </body>
 </html>
+
