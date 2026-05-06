@@ -525,12 +525,38 @@ if(document.getElementById(<?php echo $i; ?>).disabled==false)
 
 </div>
 <div style="width:100%; text-align:center">
-<button class="btn btn-default button-previous" name="back" type="submit"><i class="fa fa-arrow-circle-left"></i> Back</button>
-<button class="btn btn-success" name="save" type="submit"><i class="fa fa-save"></i> Save</button> 
-<button class="btn btn-success" name="save_print" type="submit"><i class="fa fa-print"></i> Save and Print</button>
+<button class="btn btn-default button-previous" name="back" type="submit" onClick="resetMonthlyFeeFormTarget();"><i class="fa fa-arrow-circle-left"></i> Back</button>
+<button class="btn btn-success" name="save" type="submit" onClick="resetMonthlyFeeFormTarget();"><i class="fa fa-save"></i> Save</button> 
+<button class="btn btn-success" name="save_print" type="submit" onClick="return openMonthlyFeeReceiptWindow();"><i class="fa fa-print"></i> Save and Print</button>
 <button class="btn btn-warning" type="button" onClick="window.location.href='student_edit_invoice.php?schlr_no_id=<?php echo $schlr_no_id; ?>'"><i class="fa fa-pencil"></i> Edit</button>
 <a class="btn btn-info" data-target="#wide" data-toggle="modal"><i class="fa fa-paperclip"></i> Show Previous Detail</a>
 </div>
+<script>
+function openMonthlyFeeReceiptWindow()
+{
+	var form = document.getElementById('frm1');
+	window.open('about:blank', 'monthly_fee_receipt');
+	form.target = 'monthly_fee_receipt';
+	return true;
+}
+function resetMonthlyFeeFormTarget()
+{
+	document.getElementById('frm1').target = '_self';
+	return true;
+}
+function openPreviousMonthlyFeeReceipt()
+{
+	var selectedReceipt = document.querySelector('input[name="recept_no"]:checked');
+	var scholarField = document.querySelector('input[name="schlr_no_recept"]');
+	if(!selectedReceipt)
+	{
+		alert('Please select receipt.');
+		return false;
+	}
+	window.open('fee_receipt_print.php?type=monthly&recpt_no=' + encodeURIComponent(selectedReceipt.value) + '&schlr_no_id=' + encodeURIComponent(scholarField.value), '_blank');
+	return false;
+}
+</script>
 
 
 	</form>		
@@ -597,7 +623,7 @@ if(document.getElementById(<?php echo $i; ?>).disabled==false)
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" name="mnth_print" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
+                    <button type="button" name="mnth_print" class="btn btn-info" onClick="return openPreviousMonthlyFeeReceipt();"><i class="fa fa-print"></i> Print</button>
                     <button class="btn btn-danger" data-toggle="modal" href="#stack2"><i class="fa fa-trash-o"></i> Delete</button>
                 </div>
             </div>

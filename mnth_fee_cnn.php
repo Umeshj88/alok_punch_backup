@@ -110,165 +110,8 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 		{
 			if(isset($_POST['save_print']))
 			{
-				$sel_stdnt=mysql_query("select * from `stdnt_reg` where `id`='$schlr_no_id'");
-				$arr_stdnt=mysql_fetch_array($sel_stdnt);
-				$cls_id=$arr_stdnt['cls'];
-				
-				$sel_cls=mysql_query("select * from `class` where `sno`='$cls_id'");
-				$arr_cls=mysql_fetch_array($sel_cls);
-				$class=$arr_cls['cls'];
-				
-				$sel_md=mysql_query("select * from medium where sno='".$arr_stdnt['md']."'");
-				$arr_md=mysql_fetch_array($sel_md);
-				$medium=$arr_md['medium'];
-				
-				$sel_strm=mysql_query("select * from `stream` where sno='".$arr_stdnt['strm']."'");
-				$arr_strm=mysql_fetch_array($sel_strm);
-				$strm=$arr_strm['strm'];
-				
-				$sel_sec=mysql_query("select * from `section` where sno='".$arr_stdnt['sec']."'");
-				$arr_sec=mysql_fetch_array($sel_sec);
-				$section=$arr_sec['section'];
-				
-				$tmpdir = sys_get_temp_dir();
-				$file =  tempnam($tmpdir, 'ctk');
-				$handle = fopen($file, 'w');
-				$total=0; $num_row=0;
-				$data="\n\n\n\n\n\n";
-				$data.="              ".$rcpt_no."           ".$session."\n";
-				$data.="     ".date('d-M-Y', strtotime($ndt))."               ".$schlr_no."\n";
-				$data.="           ".$arr_stdnt['fname']." ".$arr_stdnt['mname']." ".$arr_stdnt['lname']."\n";
-				  
-				$data.="           ".$arr_stdnt['f_name']."\n";
-				$data.="       ".$class." ".$medium." ".$strm." (".$section.")\n";
-				
-				$data.="\n\n";
-		
-		
-				$i=0;
-				$sel_mnth_fee_1=mysql_query("select * from `mnth_fee_1` where `recpt_no`='".$rcpt_no."'");
-				$arr_mnth_fee_1=mysql_fetch_array($sel_mnth_fee_1);
-				$sno=$arr_mnth_fee_1['sno'];
-				if($rte=='Yes')
-				{
-					$sel_mnth_fee2=mysql_query("select distinct fee_type from `mnth_fee2` where `mnth_fee1_sno`='".$sno."' && `left`='0'");
-				}
-				else
-				{
-					$sel_mnth_fee2=mysql_query("select distinct fee_type from `mnth_fee2` where `mnth_fee1_sno`='".$sno."' && `left`='0' && `fee`>'0'");
-				}
-				while($arr_mnth_fee2=mysql_fetch_array($sel_mnth_fee2))
-				{
-					$fee_type_id=$arr_mnth_fee2['fee_type'];
-					$i++;
-					$tot_fee=0;
-					$mnth_id=NULL;
-					if($rte=='Yes')
-					{
-						$sel_mnth_fee_2=mysql_query("select * from `mnth_fee2` where `mnth_fee1_sno`='".$sno."' && `left`='0' && `fee_type`='$fee_type_id'");
-					}
-					else
-					{
-						$sel_mnth_fee_2=mysql_query("select * from `mnth_fee2` where `mnth_fee1_sno`='".$sno."' && `left`='0' && `fee`>'0' && `fee_type`='$fee_type_id'");
-					}
-					while($arr_mnth_fee_2=mysql_fetch_array($sel_mnth_fee_2))
-					{
-						$fee=$arr_mnth_fee_2['fee'];
-						$tot_fee+=$fee;
-						$total+=$fee;
-						$mnth_id[]=$arr_mnth_fee_2['mnth'];
-					}
-					$sel_ft=mysql_query("select * from fee_type where sno='".$arr_mnth_fee2['fee_type']."'");
-					$arr_ft=mysql_fetch_array($sel_ft);
-					$fee_type=$arr_ft['type'];
-					$len=strlen($fee_type);
-					$data.="   ".$i." ".$fee_type;
-					for($j=$len; $j<=45; $j++)
-					{
-						$data.=" ";
-					}
-					$data.=$tot_fee."\n";
-					$num_row++;
-					$data.="      (".implode(",", $mnth_id).")\n";
-					$num_row++;
-				}
-				if(!empty($cncssn))
-				{
-					if(!empty($cn_rm))
-					{
-						$len1=strlen($cn_rm);
-						for($j=$len1; $j<=19; $j++)
-						{
-							$data1.=" ";
-						}
-						$data.="     Concession (".$cn_rm.")".$data1.$cncssn."\n";
-					}
-					else
-					{
-						$data.="     Concession                   ".$cncssn."\n";
-					}
-			
-					
-					$num_row++;
-					$total=$total-$cncssn;
-				}
-				if(!empty($fyn))
-				{
-					if(!empty($cn_rm))
-					{
-						$len1=strlen($cn_rm);
-						for($j=$len1; $j<=25; $j++)
-						{
-							$data1.=" ";
-						}
-						$data.="     Fine (".$cn_rm.")".$data1.$fyn."\n";
-					}
-					else
-					{
-						$data.="     Fine                         ".$fyn."\n";
-					}
-					$num_row++;
-					$total=$total+$fyn;
-				}
-				for($k=$num_row; $k<10; $k++)
-				{
-					$data.="\n";
-				}
-				
-				$data.="                                  ".$total."\n\n       ".convert_number_to_words($total)." Only";
-				if(!empty($chq_no))
-				{
-					$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
-				}
-						
-						/*
-						fwrite($handle, $data);
-						
-						fclose($handle);
-						system('print '.$file.'');
-						unlink($file);
-						*/
-						echo "<html><head><title>Print Receipt</title>";
-						echo "<style>
-								@page { margin: 0mm; size: auto; }
-								@media print { 
-									.no-print { display: none !important; } 
-									body { margin: 0; padding: 0; background: white; }
-									pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.5 !important; width: 100%; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-								}
-								body { font-family: 'Courier New', Courier, monospace !important; background: #f4f4f4; padding: 20px; font-weight: normal !important; }
-								pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.5; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-								.controls { text-align: center; margin-bottom: 20px; }
-								button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; margin: 5px; }
-								.back-btn { background: #5bc0de; }
-							  </style></head><body>";
-						echo "<div class='controls no-print'>";
-						echo "<button onclick='window.print()'>Click Here to Print</button>";
-						echo "<button class='back-btn' onclick=\"window.location.href='srch_mnth_fee.php?done=done'\">Go Back</button>";
-						echo "</div>";
-						echo "<pre>".htmlspecialchars($data)."</pre>";
-						echo "<script>window.print();</script>";
-						echo "</body></html>";
+				echo "<script>location='fee_receipt_print.php?type=monthly&recpt_no=$rcpt_no&schlr_no_id=$schlr_no_id';</script>";
+				exit;
 			}
 			$sel_mnth_fee_count=mysql_query("select * from `mnth_fee_1` where `schlr_no_id`='".$arr_stdnt['id']."'");
 			$num_mnth_fee_count=mysql_num_rows($sel_mnth_fee_count);
@@ -296,14 +139,7 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 			}
 			
 			
-			if(isset($_POST['save_print']))
-			{
-				echo "<script>window.print(); window.location.href='srch_mnth_fee.php?done=done';</script>";
-			}
-			else
-			{
-				echo "<meta http-equiv='Refresh' content='0 ;URL=srch_mnth_fee.php?done=done'>";
-			}
+			echo "<meta http-equiv='Refresh' content='0 ;URL=srch_mnth_fee.php?done=done'>";
 			exit;
 		}
 		else
@@ -323,5 +159,3 @@ else if(isset($_POST['back']))
 	exit;
 }
 ?>
-
-

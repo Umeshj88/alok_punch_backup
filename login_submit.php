@@ -1,8 +1,8 @@
 <?php
 ini_set('max_execution_time', 10000);
-$dbHost='127.0.0.1';
-$dbUser='alok_panch';
-$dbPass='x2026P#p%uOP';
+$dbHost='db';
+$dbUser='root';
+$dbPass='root';
 $dbName='fee_session';
 $s=mysql_connect($dbHost,$dbUser,$dbPass) or die('Error connecting to MySQL server: ' . mysql_error());
 mysql_select_db($dbName,$s);

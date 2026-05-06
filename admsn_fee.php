@@ -265,8 +265,22 @@ while($arr=mysql_fetch_array($sel))
 </div>
 </div>
 <center>
-<button class="btn btn-success" name="save_print" type="submit">Save and Print</button>
+<button class="btn btn-success" name="save_print" type="submit" onClick="return openFeeReceiptWindow();">Save and Print</button>
 </center>
+<script>
+function openFeeReceiptWindow()
+{
+	var form = document.getElementById('frm1');
+	window.open('about:blank', 'fee_receipt');
+	form.target = 'fee_receipt';
+	return true;
+}
+function resetFeeReceiptWindow()
+{
+	document.getElementById('frm1').target = '_self';
+	return true;
+}
+</script>
 </form>
 		</div>
 	</div>

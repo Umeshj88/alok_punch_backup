@@ -376,11 +376,37 @@ $s=mysql_query("select gen_rcpt_no from `rcpt_no`");
 </table>
 </div>
 <div style="width:100%; text-align:center">
-<button class="btn btn-default button-previous" name="back" type="submit"><i class="fa fa-arrow-circle-left"></i> Back</button>
-<button class="btn btn-success" name="save" type="submit"><i class="fa fa-save"></i> Save</button> 
-<button class="btn btn-success" name="save_print" type="submit"><i class="fa fa-print"></i> Save and Print</button>  
+<button class="btn btn-default button-previous" name="back" type="submit" onClick="return resetFeeReceiptWindow();"><i class="fa fa-arrow-circle-left"></i> Back</button>
+<button class="btn btn-success" name="save" type="submit" onClick="return resetFeeReceiptWindow();"><i class="fa fa-save"></i> Save</button> 
+<button class="btn btn-success" name="save_print" type="submit" onClick="return openFeeReceiptWindow();"><i class="fa fa-print"></i> Save and Print</button>  
 <a class="btn btn-info" href="#wide" data-toggle="modal"><i class="fa fa-paperclip"></i> Show Previous Detail</a> 
 </div> 
+<script>
+function openFeeReceiptWindow()
+{
+	var form = document.getElementById('frm1');
+	window.open('about:blank', 'fee_receipt');
+	form.target = 'fee_receipt';
+	return true;
+}
+function resetFeeReceiptWindow()
+{
+	document.getElementById('frm1').target = '_self';
+	return true;
+}
+function openPreviousFeeReceipt(type)
+{
+	var selectedReceipt = document.querySelector('input[name="recept_no"]:checked');
+	var scholarField = document.querySelector('input[name="schlr_no_recept"]');
+	if(!selectedReceipt)
+	{
+		alert('Please select receipt.');
+		return false;
+	}
+	window.open('fee_receipt_print.php?type=' + encodeURIComponent(type) + '&recpt_no=' + encodeURIComponent(selectedReceipt.value) + '&schlr_no_id=' + encodeURIComponent(scholarField.value), '_blank');
+	return false;
+}
+</script>
 </form> 
 			
             <form  method="POST" name="form_print" action="recept_print.php">
@@ -431,7 +457,7 @@ $s=mysql_query("select gen_rcpt_no from `rcpt_no`");
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" name="annl_print" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
+                    <button type="button" name="annl_print" class="btn btn-info" onClick="return openPreviousFeeReceipt('annual');"><i class="fa fa-print"></i> Print</button>
                      <button class="btn btn-danger" data-toggle="modal" href="#stack2"><i class="fa fa-trash-o"></i> Delete</button>
                 </div>
             </div>

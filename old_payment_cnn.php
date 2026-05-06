@@ -57,6 +57,11 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 		{
 			if(isset($_POST['save_print']))
 			{
+				echo "<script>location='fee_receipt_print.php?type=old&recpt_no=$rcpt_no&schlr_no_id=$schlr_no_id';</script>";
+				exit;
+			}
+			if(isset($_POST['save_print']))
+			{
 				$sel_stdnt=mysql_query("select * from `stdnt_reg` where `id`='$schlr_no_id'");
 				$arr_stdnt=mysql_fetch_array($sel_stdnt);
 				$cls_id=$arr_stdnt['cls'];
@@ -149,34 +154,10 @@ if(isset($_POST['save_print']) || isset($_POST['save']))
 				{
 					$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bank;
 				}
-				/*
 				fwrite($handle, $data);
 				fclose($handle);
 				system('print '.$file.'');
 				unlink($file);
-				*/
-				echo "<html><head><title>Print Receipt</title>";
-				echo "<style>
-						@page { margin: 0mm; size: auto; }
-						@media print { 
-							.no-print { display: none !important; } 
-							body { margin: 0; padding: 0; background: white; }
-							pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 12px !important; line-height: 1.2; width: 100%; }
-						}
-						body { font-family: 'Courier New', Courier, monospace; background: #f4f4f4; padding: 20px; }
-						pre { background: white; padding: 20px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 12px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.2; }
-						.controls { text-align: center; margin-bottom: 20px; }
-						button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
-						.back-btn { background: #5bc0de; }
-					  </style></head><body>";
-				echo "<div class='controls no-print'>";
-				echo "<button onclick='window.print()'>Click Here to Print</button>";
-				echo "<button class='back-btn' onclick=\"window.location.href='srch_old_payment.php?done=done'\">Go Back</button>";
-				echo "</div>";
-				echo "<pre>".htmlspecialchars($data)."</pre>";
-				echo "<script>window.print();</script>";
-				echo "</body></html>";
-				exit;
 			}
 			
 			echo "<meta http-equiv='Refresh' content='0 ;URL=srch_old_payment.php?done=done'>";

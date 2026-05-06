@@ -48,10 +48,11 @@ if(!empty($_POST['recept_no']))
 		$cn_rm=$arr_mnth_fee_1['cnrm'];
 		$chq_no=$arr_mnth_fee_1['chq_no'];
 		$bnk=$arr_mnth_fee_1['bnk'];
-		$data="\n\n\n\n\n\n";
+		$data.="\n";
 		$data.="              ".$rcpt_no."           ".$session."\n";
 		$data.="     ".date('d-M-Y', strtotime($dat))."               ".$schlr_no."\n";
 		$data.="           ".$arr_stdnt['fname']." ".$arr_stdnt['mname']." ".$arr_stdnt['lname']."\n";
+		  
 		$data.="           ".$arr_stdnt['f_name']."\n";
 		$data.="       ".$class." ".$medium." ".$strm." (".$section.")\n";
 		
@@ -91,7 +92,7 @@ if(!empty($_POST['recept_no']))
 			$fee_type=$arr_ft['type'];
 			$len=strlen($fee_type);
 			$data.="   ".$i." ".$fee_type;
-			for($j=$len; $j<=45; $j++)
+			for($j=$len; $j<=28; $j++)
 			{
 				$data.=" ";
 			}
@@ -137,7 +138,7 @@ if(!empty($_POST['recept_no']))
 			$num_row++;
 			$total=$total+$fyn;
 		}
-		for($k=$num_row; $k<10; $k++)
+		for($k=$num_row; $k<7; $k++)
 		{
 			$data.="\n";
 		}
@@ -153,33 +154,16 @@ if(!empty($_POST['recept_no']))
 					//fclose($handle);
 					//system('print'.$file.'');
 					
-					/*
 					fwrite($handle, $data);
 					fclose($handle);
-					echo $output =system('print '.$file.'');
+					//echo exec('print'.$file.'');
+					 echo $output =system('print '.$file.'');
+					//exit;
+				//print_r($fp);
+				//print_r($file);
+				//exit;
 					unlink($file);
-					*/
-					echo "<html><head><title>Print Receipt</title>";
-					echo "<style>
-							@page { margin: 0mm; size: auto; }
-							@media print { 
-								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.5 !important; width: 100%; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							}
-							body { font-family: 'Courier New', Courier, monospace !important; background: #f4f4f4; padding: 20px; font-weight: normal !important; }
-							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.5; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							.controls { text-align: center; margin-bottom: 20px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
-							.back-btn { background: #5bc0de; }
-						  </style></head><body>";
-					echo "<div class='controls no-print'>";
-					echo "<button onclick='window.print()'>Click Here to Print</button>";
-					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
-					echo "</div>";
-					echo "<pre>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print();</script>";
-					echo "</body></html>";
+					echo "<meta http-equiv='Refresh' content='0 ;URL=mnth_fee.php?schlr_no_id=$schlr_no_id'>";
 					exit;
 	}
 	else if(isset($_POST['annl_print']))
@@ -199,10 +183,11 @@ if(!empty($_POST['recept_no']))
 		$bnk=$arr_annl_fee_1['bnk'];
 		
 		
-		$data.="\n\n\n\n";
+		$data.="\n";
 		$data.="              ".$rcpt_no."           ".$session."\n";
 		$data.="     ".date('d-M-Y', strtotime($dat))."               ".$schlr_no."\n";
 		$data.="           ".$arr_stdnt['fname']." ".$arr_stdnt['mname']." ".$arr_stdnt['lname']."\n";
+		  
 		$data.="           ".$arr_stdnt['f_name']."\n";
 		$data.="       ".$class." ".$medium." ".$strm." (".$section.")\n";
 		
@@ -224,7 +209,7 @@ if(!empty($_POST['recept_no']))
 			
 			$len=strlen($fee_type);
 			$data.="   ".$i." ".$fee_type;
-			for($j=$len; $j<=45; $j++)
+			for($j=$len; $j<=28; $j++)
 			{
 				$data.=" ";
 			}
@@ -271,7 +256,7 @@ if(!empty($_POST['recept_no']))
 				$num_row++;
 				$total=$total+$fyn;
 			}
-		for($k=$num_row; $k<10; $k++)
+		for($k=$num_row; $k<7; $k++)
 		{
 			$data.="\n";
 		}
@@ -282,34 +267,13 @@ if(!empty($_POST['recept_no']))
 			$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 		}
 					
-					/*
 					fwrite($handle, $data);
 					fclose($handle);
 					system('print '.$file.'');
 					exit;
 					unlink($file);
-					*/
-					echo "<html><head><title>Print Receipt</title>";
-					echo "<style>
-							@page { margin: 0mm; size: auto; }
-							@media print { 
-								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.5 !important; width: 100%; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							}
-							body { font-family: 'Courier New', Courier, monospace !important; background: #f4f4f4; padding: 20px; font-weight: normal !important; }
-							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.5; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							.controls { text-align: center; margin-bottom: 20px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
-							.back-btn { background: #5bc0de; }
-						  </style></head><body>";
-					echo "<div class='controls no-print'>";
-					echo "<button onclick='window.print()'>Click Here to Print</button>";
-					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
-					echo "</div>";
-					echo "<pre>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print();</script>";
-					echo "</body></html>";
+		
+					echo "<meta http-equiv='Refresh' content='0 ;URL=annl_fee_new.php?schlr_no_id=$schlr_no_id'>";
 					exit;
 	}
 	else if(isset($_POST['hstl_print']))
@@ -328,10 +292,11 @@ if(!empty($_POST['recept_no']))
 		$bnk=$arr_hstl_fee['bank'];
 	
 	
-		$data.="\n\n\n\n";
+		$data.="\n";
 		$data.="              ".$rcpt_no."           ".$session."\n";
 		$data.="     ".date('d-M-Y', strtotime($dat))."               ".$schlr_no."\n";
 		$data.="           ".$arr_stdnt['fname']." ".$arr_stdnt['mname']." ".$arr_stdnt['lname']."\n";
+		  
 		$data.="           ".$arr_stdnt['f_name']."\n";
 		$data.="       ".$class." ".$medium." ".$strm." (".$section.")\n";
 		
@@ -346,7 +311,7 @@ if(!empty($_POST['recept_no']))
 			$fee_type="Hostel Fee";
 			$len=strlen($fee_type);
 			$data.="   ".$i." ".$fee_type;
-			for($j=$len; $j<=45; $j++)
+			for($j=$len; $j<=28; $j++)
 			{
 				$data.=" ";
 			}
@@ -390,7 +355,7 @@ if(!empty($_POST['recept_no']))
 				$num_row++;
 				$total=$total+$fyn;
 			}
-		for($k=$num_row; $k<10; $k++)
+		for($k=$num_row; $k<7; $k++)
 		{
 			$data.="\n";
 		}
@@ -401,33 +366,11 @@ if(!empty($_POST['recept_no']))
 			$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 		}
 					
-					/*
 					fwrite($handle, $data);
 					fclose($handle);
 					system('print '.$file.'');
 					unlink($file);
-					*/
-					echo "<html><head><title>Print Receipt</title>";
-					echo "<style>
-							@page { margin: 0mm; size: auto; }
-							@media print { 
-								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.5 !important; width: 100%; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							}
-							body { font-family: 'Courier New', Courier, monospace !important; background: #f4f4f4; padding: 20px; font-weight: normal !important; }
-							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.5; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							.controls { text-align: center; margin-bottom: 20px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
-							.back-btn { background: #5bc0de; }
-						  </style></head><body>";
-					echo "<div class='controls no-print'>";
-					echo "<button onclick='window.print()'>Click Here to Print</button>";
-					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
-					echo "</div>";
-					echo "<pre>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print();</script>";
-					echo "</body></html>";
+					echo "<meta http-equiv='Refresh' content='0 ;URL=hstl_fee.php?schlr_no_id=$schlr_no_id'>";
 					exit;
 	}
 	
@@ -443,10 +386,11 @@ if(!empty($_POST['recept_no']))
 		$chq_no=$arr_cautn_fee['chq_no'];
 		$bnk=$arr_cautn_fee['bank'];
 		
-		$data.="\n\n\n\n";
+		$data.="\n";
 		$data.="              ".$rcpt_no."           ".$session."\n";
 		$data.="     ".date('d-M-Y', strtotime($dat))."               ".$schlr_no."\n";
 		$data.="           ".$arr_stdnt['fname']." ".$arr_stdnt['mname']." ".$arr_stdnt['lname']."\n";
+		  
 		$data.="           ".$arr_stdnt['f_name']."\n";
 		$data.="       ".$class." ".$medium." ".$strm." (".$section.")\n";
 		
@@ -467,7 +411,7 @@ if(!empty($_POST['recept_no']))
 		}
 		$data.=$fee."\n";
 		$num_row++;
-		for($k=$num_row; $k<10; $k++)
+		for($k=$num_row; $k<7; $k++)
 		{
 			$data.="\n";
 		}
@@ -477,33 +421,11 @@ if(!empty($_POST['recept_no']))
 			$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 		}
 					
-					/*
 					fwrite($handle, $data);
 					fclose($handle);
 					system('print '.$file.'');
 					unlink($file);
-					*/
-					echo "<html><head><title>Print Receipt</title>";
-					echo "<style>
-							@page { margin: 0mm; size: auto; }
-							@media print { 
-								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.5 !important; width: 100%; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							}
-							body { font-family: 'Courier New', Courier, monospace !important; background: #f4f4f4; padding: 20px; font-weight: normal !important; }
-							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.5; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							.controls { text-align: center; margin-bottom: 20px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
-							.back-btn { background: #5bc0de; }
-						  </style></head><body>";
-					echo "<div class='controls no-print'>";
-					echo "<button onclick='window.print()'>Click Here to Print</button>";
-					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
-					echo "</div>";
-					echo "<pre>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print();</script>";
-					echo "</body></html>";
+					echo "<meta http-equiv='Refresh' content='0 ;URL=ctn_fee.php?schlr_no_id=$schlr_no_id'>";
 					exit;
 	}
 	else if(isset($_POST['adhoc_print']))
@@ -523,10 +445,11 @@ if(!empty($_POST['recept_no']))
 		$arr_ft=mysql_fetch_array($sel_ft);
 		$fee_type=$arr_ft['type'];
 		
-		$data.="\n\n\n\n";
+		$data.="\n";
 		$data.="              ".$rcpt_no."           ".$session."\n";
 		$data.="     ".date('d-M-Y', strtotime($dat))."               ".$schlr_no."\n";
 		$data.="           ".$arr_stdnt['fname']." ".$arr_stdnt['mname']." ".$arr_stdnt['lname']."\n";
+		  
 		$data.="           ".$arr_stdnt['f_name']."\n";
 		$data.="       ".$class." ".$medium." ".$strm." (".$section.")\n";
 		
@@ -565,33 +488,11 @@ if(!empty($_POST['recept_no']))
 			$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bank;
 		}
 					
-					/*
 					fwrite($handle, $data);
 					fclose($handle);
 					system('print '.$file.'');
 					unlink($file);
-					*/
-					echo "<html><head><title>Print Receipt</title>";
-					echo "<style>
-							@page { margin: 0mm; size: auto; }
-							@media print { 
-								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.5 !important; width: 100%; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							}
-							body { font-family: 'Courier New', Courier, monospace !important; background: #f4f4f4; padding: 20px; font-weight: normal !important; }
-							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.5; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							.controls { text-align: center; margin-bottom: 20px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
-							.back-btn { background: #5bc0de; }
-						  </style></head><body>";
-					echo "<div class='controls no-print'>";
-					echo "<button onclick='window.print()'>Click Here to Print</button>";
-					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
-					echo "</div>";
-					echo "<pre>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print();</script>";
-					echo "</body></html>";
+					echo "<meta http-equiv='Refresh' content='0 ;URL=srch_adhc.php?schlr_no_id=$schlr_no_id'>";
 					exit;
 	}
 	else if(isset($_POST['oldfee_print']))
@@ -619,10 +520,11 @@ if(!empty($_POST['recept_no']))
 		}
 		
 		
-		$data.="\n\n\n\n";
+		$data.="\n";
 		$data.="              ".$rcpt_no."           ".$session."\n";
 		$data.="     ".date('d-M-Y', strtotime($dat))."               ".$schlr_no."\n";
 		$data.="           ".$arr_stdnt['fname']." ".$arr_stdnt['mname']." ".$arr_stdnt['lname']."\n";
+		  
 		$data.="           ".$arr_stdnt['f_name']."\n";
 		$data.="       ".$class." ".$medium." ".$strm." (".$section.")\n";
 		
@@ -663,7 +565,7 @@ if(!empty($_POST['recept_no']))
 		}
 		
 		
-		for($k=$num_row; $k<10; $k++)
+		for($k=$num_row; $k<7; $k++)
 		{
 			$data.="\n";
 		}
@@ -674,33 +576,11 @@ if(!empty($_POST['recept_no']))
 			$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 		}
 					
-					/*
 					fwrite($handle, $data);
 					fclose($handle);
 					system('print '.$file.'');
 					unlink($file);
-					*/
-					echo "<html><head><title>Print Receipt</title>";
-					echo "<style>
-							@page { margin: 0mm; size: auto; }
-							@media print { 
-								.no-print { display: none !important; } 
-								body { margin: 0; padding: 0; background: white; }
-								pre { border: none !important; box-shadow: none !important; padding: 10px 0 0 40px !important; margin: 0 !important; font-size: 14px !important; line-height: 1.5 !important; width: 100%; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							}
-							body { font-family: 'Courier New', Courier, monospace !important; background: #f4f4f4; padding: 20px; font-weight: normal !important; }
-							pre { background: white; padding: 10px 20px 20px 40px; border: 1px solid #ccc; width: fit-content; margin: 0; font-size: 14px; white-space: pre; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.5; page-break-inside: avoid; font-family: 'Courier New', Courier, monospace !important; font-weight: normal !important; }
-							.controls { text-align: center; margin-bottom: 20px; }
-							button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #5cb85c; color: white; border: none; border-radius: 4px; margin: 5px; }
-							.back-btn { background: #5bc0de; }
-						  </style></head><body>";
-					echo "<div class='controls no-print'>";
-					echo "<button onclick='window.print()'>Click Here to Print</button>";
-					echo "<button class='back-btn' onclick='window.history.back()'>Go Back</button>";
-					echo "</div>";
-					echo "<pre>".htmlspecialchars($data)."</pre>";
-					echo "<script>window.print();</script>";
-					echo "</body></html>";
+					echo "<meta http-equiv='Refresh' content='0 ;URL=srch_old_payment.php?schlr_no_id=$schlr_no_id'>";
 					exit;
 	}
 	
@@ -761,24 +641,11 @@ if(!empty($_POST['recept_no']))
 			{
 				$data.="\n Cheque NO.- ".$chq_no.", Bank Name- ".$bnk;
 			}
-			/*
 			fwrite($handle, $data);
 			fclose($handle);
 			system('print '.$file.'');
 			unlink($file);
-			*/
-			echo "<html><head><style>
-							@page { size: 12.7cm 10.1cm landscape; margin: 0; }
-							@media print { 
-								.no-print { display: none !important; } 
-								html, body { margin: 0; padding: 0; background: white; width: 12.7cm; height: 10.1cm; overflow: hidden; }
-								pre { border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; font-size: 11px !important; line-height: 1.1 !important; width: 12.7cm; height: 9.8cm; page-break-inside: avoid; overflow: hidden; white-space: pre; }
-							}
-							pre { font-family: 'Courier New', Courier, monospace; font-size: 11px; white-space: pre; line-height: 1.1; margin: 0; padding: 5px; }
-						  </style></head><body>";
-			echo "<pre>".htmlspecialchars($data)."</pre>";
-			echo "<script>window.print(); window.location.href='srch_adhc.php?done=done';</script>";
-			echo "</body></html>";
+			echo "<meta http-equiv='Refresh' content='0 ;URL=srch_adhc.php?done=done'>";
 			exit;
 			//////////////////////////////////////// Receipt Delete Code   //////////////////////////////////////////////////////////////////////
 	}
@@ -900,4 +767,3 @@ if(!empty($_POST['recept_no']))
 
 </body>
 </html>
-

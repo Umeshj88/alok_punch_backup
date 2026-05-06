@@ -76,9 +76,9 @@ function backup_import($session,$s)
 	
 	// Database name
 	$mysql_database = $session;
-	$dbHost='localhost';
-$dbUser='root';
-$dbPass='hello';
+	$dbHost=getenv('DB_HOST') ? getenv('DB_HOST') : 'localhost';
+$dbUser=getenv('DB_USER') ? getenv('DB_USER') : 'root';
+$dbPass=getenv('DB_PASS') ? getenv('DB_PASS') : 'hello';
 //$dbName='alok';
 $s=mysql_connect($dbHost,$dbUser,$dbPass) or die('Error connecting to MySQL server: ' . mysql_error());
 	// Connect to MySQL server
