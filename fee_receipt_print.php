@@ -2,9 +2,9 @@
 session_start();
 require_once("function.php");
 
-$dbHost=getenv('DB_HOST') ? getenv('DB_HOST') : 'localhost';
-$dbUser=getenv('DB_USER') ? getenv('DB_USER') : 'root';
-$dbPass=getenv('DB_PASS') ? getenv('DB_PASS') : '';
+$dbHost=getenv('DB_HOST') ? getenv('DB_HOST') : '127.0.0.1';
+$dbUser=getenv('DB_USER') ? getenv('DB_USER') : 'alok_panch';
+$dbPass=getenv('DB_PASS') ? getenv('DB_PASS') : 'x2026P#p%uOP';
 $s=mysql_connect($dbHost,$dbUser,$dbPass) or die('Error connecting to MySQL server: ' . mysql_error());
 
 if(empty($_SESSION['session']))
@@ -14,7 +14,6 @@ if(empty($_SESSION['session']))
 	$arr_session=mysql_fetch_array($sel_session);
 	$_SESSION['session']=$arr_session['session'];
 }
-
 $session=$_SESSION['session'];
 mysql_select_db($session,$s) or die('Error selecting MySQL database: ' . mysql_error());
 
@@ -52,13 +51,21 @@ function receipt_student($schlr_no_id)
 
 function receipt_header($rcpt_no, $session, $date, $stdnt)
 {
+	// $data="";
+	// $data.="\n\n\n\n";
+	// $data.="              ".$rcpt_no."           ".$session."\n";
+	// $data.="     ".date('d-M-Y', strtotime($date))."               ".$stdnt['schlr_no']."\n";
+	// $data.="           ".$stdnt['fname']." ".$stdnt['mname']." ".$stdnt['lname']."\n";
+	// $data.="           ".$stdnt['f_name']."\n";
+	// $data.="       ".$stdnt['_class']." ".$stdnt['_medium']." ".$stdnt['_stream']." (".$stdnt['_section'].")\n";
+	// $data.="\n\n\n";
+	// return $data;
 	$data="";
-	$data.="\n";
-	$data.="              ".$rcpt_no."           ".$session."\n";
-	$data.="     ".date('d-M-Y', strtotime($date))."               ".$stdnt['schlr_no']."\n";
-	$data.="           ".$stdnt['fname']." ".$stdnt['mname']." ".$stdnt['lname']."\n";
+	$data.="\n\n\n";
+	$data.="              ".$rcpt_no."              ".date('d-M-Y', strtotime($date))."\n";
+	$data.="                   ".$stdnt['fname']." ".$stdnt['mname']." ".$stdnt['lname']."\n";
 	$data.="           ".$stdnt['f_name']."\n";
-	$data.="       ".$stdnt['_class']." ".$stdnt['_medium']." ".$stdnt['_stream']." (".$stdnt['_section'].")\n";
+	$data.="        ".$stdnt['_class']." ".$stdnt['_medium']." ".$stdnt['_stream']." (".$stdnt['_section'].")        ".$session."\n";
 	$data.="\n\n";
 	return $data;
 }
@@ -250,15 +257,17 @@ if(empty($data))
 <head>
 	<title>Fee Receipt</title>
 	<style>
-		body { background: #f1f1f1; font-family: Arial, sans-serif; margin: 0; padding: 20px; }
-		.toolbar { margin: 0 auto 12px auto; max-width: 560px; }
+		body { background: #f1f1f1; margin: 0; padding: 20px; }
+		.toolbar { margin: 0 auto 12px auto; max-width: 460px; }
 		button { background: #31708f; border: 0; color: #fff; cursor: pointer; font-size: 14px; padding: 8px 14px; }
-		.receipt { background: #fff; border: 1px solid #ccc; box-sizing: border-box; margin: 0 auto; min-height: 520px; padding: 20px; width: 560px; }
+		.receipt { background: #fff; border: 1px solid #ccc; box-sizing: border-box; margin: 0 auto; min-height: 420px; padding: 20px; width: 520px; }
 		pre { font-family: "Courier New", monospace; font-size: 14px; line-height: 1.25; margin: 0; white-space: pre-wrap; }
 		@media print {
+			@page { margin: 0.15in; }
 			body { background: #fff; padding: 0; }
 			.toolbar { display: none; }
-			.receipt { border: 0; margin: 0; padding: 0; width: auto; }
+			.receipt { border: 0; margin: 0; padding: 0.6in 0 0 0; width: auto; }
+			pre { font-family: "Courier 10 Pitch", "Courier", "Lucida Console", monospace; font-size: 9pt; line-height: 16pt; white-space: pre; }
 		}
 	</style>
 </head>
